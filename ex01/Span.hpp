@@ -3,7 +3,8 @@
 
 #include <iostream>
 #include <vector>
-#include "./Span.hpp"
+#include <algorithm>
+#include <iterator>
 
 class Span
 {
@@ -19,6 +20,7 @@ class Span
 		~Span();
 
 		void addNumber(int n);
+		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		int shortestSpan();
 		int longestSpan();
 

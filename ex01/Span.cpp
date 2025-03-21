@@ -1,5 +1,4 @@
 #include "./Span.hpp"
-#include <algorithm>
 
 Span::Span() : _N(0) {}
 
@@ -26,6 +25,13 @@ void Span::addNumber(int n)
 	if (_nums.size() >= _N)
 		throw ContainerFullException();
 	_nums.push_back(n);
+}
+
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (_nums.size() + std::distance(begin, end) > _N)
+		throw ContainerFullException();
+	_nums.insert(_nums.end(), begin, end);
 }
 
 int Span::shortestSpan()

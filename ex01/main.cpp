@@ -3,7 +3,6 @@
 int main()
 {
 	Span empty;
-
 	try
 	{
 		empty.addNumber(1);
@@ -12,8 +11,8 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	Span one(1);
 
+	Span one(1);
 	one.addNumber(1);
 	try
 	{
@@ -45,6 +44,17 @@ int main()
 	A.addNumber(32);
 	A.addNumber(7);
 
-	std::cout << A.shortestSpan() << std::endl;
-	std::cout << A.longestSpan() << std::endl;
+	std::cout << "A: " << A.shortestSpan() << std::endl;
+	std::cout << "A: " << A.longestSpan() << std::endl;
+	
+	std::vector<int> vec;
+	Span B(10000);
+
+	for (int i = 0; i < 10000; i++)
+		vec.push_back(i);
+	
+	B.addNumber(vec.begin(), vec.end());
+	std::cout << "B: " << B.shortestSpan() << std::endl;
+	std::cout << "B: " << B.longestSpan() << std::endl;
+	
 }
